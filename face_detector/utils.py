@@ -30,9 +30,11 @@ def extract_face(dir, target_size=TARGET_SIZE, include_landmarks=False):
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     img = redim_img(img,1600)
 
+    model = FaceNet()
+    landmarks = model.extract(img, threshold=0.95)
+    
     if include_landmarks == True:
-        model = FaceNet()
-        landmarks = model.extract(img, threshold=0.95)
+        
     else:
         model = MTCNN()
         landmarks = model.detect_faces(img)
@@ -109,7 +111,7 @@ def save_images(img_list, save_path):
                 cv.imwrite(path, img)
         print('Arquivos salvos com sucesso!')
     except Exception as e:
-       print('Erro ao salvar arquivos: {e}')
+       print(f'Erro ao salvar arquivos: {e}')
 
 def categorize_faces(embeddings):
 
