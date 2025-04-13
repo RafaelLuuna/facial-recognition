@@ -35,7 +35,7 @@ def upload_files():
             print(f'\n\nVariável não encontrada na requisição POST: {e}\n')
         
         except Exception as e:
-            print(f'\n\nErro ao carregar arquivo: {e}\n')
+            print(f'\n\nErro ao carregar arquivo: {e}, {file}\n')
 
 
     if request.method == 'GET':

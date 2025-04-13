@@ -34,6 +34,7 @@ def extract_face(dir, target_size=TARGET_SIZE, include_landmarks=False):
     landmarks = model.extract(img, threshold=0.95)
     
     if include_landmarks == True:
+        pass
         
     else:
         model = MTCNN()
